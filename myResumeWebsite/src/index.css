@@ -24,3 +24,40 @@
     font-size: 30px;
     font-family: "Gluten", cursive;
 }
+
+#container{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.text-box {
+  /* Position the text box absolutely within the container */
+  position: absolute; 
+  top: 50%; /* Start at the vertical midpoint */
+  left: 50%; /* Start at the horizontal midpoint */
+  /* Use transform to perfectly center the element based on its own size */
+  transform: translate(-50%, -50%); 
+  
+  /* Optional: Add styles for better appearance and readability */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  z-index: 2; /* Ensures the text box is above the image (default z-index is 0) */
+}
