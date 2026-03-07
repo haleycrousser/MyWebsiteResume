@@ -75,24 +75,19 @@ function AboutMe() {
 
 
                  <div className="textbox">
-                    <h1>Haley Crousser</h1>
-                    <h2>Professional Computer Science Student<br></br>at Middle Tennessee State University</h2>
+                    <h1>
+                        <span style={{fontSize: "2em"}}>Haley Crousser </span><br></br><br></br>
+                        Professional Computer Science Student<br></br>at Middle Tennessee State University
+                    </h1>
                     <p1>C++ • Python • Javascript • HTML • CSS • React<br></br></p1>
                     <p2><br></br>I am currently in my third year of college, and I've had an interest
-                        in computers since I was a child. I started programming with HTML and 
+                        in computers since I was a kid. I started programming with HTML and 
                         CSS in high school, and I have since expanded my skillset to include C++, 
                         Python, and React.<br></br>
-                        My goal is to become a software engineer and create meaningful work
-                        that can cause a positive impact on peoples lives. Whether that is through
-                        game development, web development, or software development. Software created
-                        by someone who cares is important to me, and the consumers. Passion has been
-                        lost in the software industry and along the way it's become about searching
-                        "jobs that pay well" on the internet. I want to be a part of the change that
-                        inspires kids to make programs that reflect their creativity and passion, 
-                        not just programs that are "marketable". As a programmer and consumer
-                        I'd much rather support a passion project from a group of developers rather
-                        than someone just in it for a profit.<br></br>
-                        
+                        My goal is to become a software engineer because I want to contribute to
+                        meaningful projects that bring positivity and innovation. As a consumer and developer
+                        I'd rather support a passion project made by a company or a small team that cares about their work, rather than
+                         someone that prioritizes profit over quality. <br></br>
 
                     </p2>
                 </div>
@@ -102,22 +97,6 @@ function AboutMe() {
                     <img src="/profilePic.jpg" id="profilePic" />
                 </div>
 
-
-                <div className="socials">
-
-                <a href="https://github.com/haleycrousser" target="_blank">
-                    <img src="/github.png" className="socialIcon"/>
-                </a>
-
-                <a href="https://www.linkedin.com/in/haleycrousser/" target="_blank">
-                    <img src="/LinkedIn.png" className="socialIcon"/>
-                </a>
-
-                <a href="https://leetcode.com/u/haleycrousser/" target="_blank">
-                    <img src="/leetcode.png" className="socialIcon"/>
-                </a>
-
-            </div>
             </div>
 
 

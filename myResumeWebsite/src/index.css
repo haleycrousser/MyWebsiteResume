@@ -2,11 +2,15 @@
 .header {
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
     background-color: #2a155f;
     width: 100%;
     padding: 20px 0;
     border-radius: 10px;
+
+    /* Make it wrap nicely on small screens */
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 .nav-links {
@@ -15,22 +19,26 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    width: 100%; /* full width to center content */
+    padding: 0;
+    margin: 0;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
-    font-size: 28px; /* fixed font size */
+    font-size: 1.8rem;
     font-family: "Gluten", cursive;
+    text-align: center; /* centers text if wrapped */
 }
 
 /* ===== Container & Background ===== */
 #container {
     position: relative;
-    width: 1200px; /* fixed desktop width */
-    height: 900px; /* fixed desktop height */
+    width: 1500px; /* fixed desktop width */
+    height: 700px; /* fixed desktop height */
     margin: 0 auto; /* center container horizontally */
     overflow: hidden;
 }
@@ -56,7 +64,7 @@
     top: 50px; /* fixed top position */
     left: 700px; /* fixed left position */
     width: 600px;
-    height: 650px;
+    height: 550px;
     z-index: 4;
 
     font-family: "Gluten", cursive;
@@ -69,30 +77,23 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
+    
 
-.textbox h1 {
-    font-size: 2.8rem;
+h1 {
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-.textbox p1,
-.textbox p2 {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 10px;
-}
 
 /* ===== Profile Picture ===== */
 .imagebox {
     position: absolute;
-    top: 50px; /* fixed top */
-    left: 50px; /* fixed left */
-    width: 300px;
-    height: 350px;
+    top: 70px; /* fixed top */
+    left: 130px; /* fixed left */
+    width: 400px;
+    height: 450px;
     border: 5px solid #2a155f;
     border-radius: 10%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -102,9 +103,6 @@
     z-index: 3;
 }
 
-.imagebox:hover {
-    transform: scale(1.05);
-}
 
 #profilePic {
     width: 100%;
@@ -115,8 +113,8 @@
 /* ===== Social Icons ===== */
 .socials {
     position: absolute;
-    top: 650px; /* fixed vertical position */
-    left: 200px; /* fixed horizontal */
+    top: 28px; /* fixed vertical position */
+    left: 80px; /* fixed horizontal */
     display: flex;
     gap: 20px;
     z-index: 4;
@@ -134,8 +132,7 @@
 }
 
 /* ===== Mobile Responsiveness ===== */
-@media (max-width: 768px) {
-
+@media (max-width: 480px) {
     .header {
         padding: 10px 0;
     }
@@ -148,6 +145,9 @@
         font-size: 1.4rem;
     }
 }
+
+@media (max-width: 1080px) {
+
 
     #container {
         width: 100%; /* fill screen */
@@ -162,7 +162,7 @@
         width: 90%;
         height: auto;
         margin: 20px auto;
-        padding: 15px;
+        padding: 5px;
     }
 
     .textbox h1 {
@@ -198,7 +198,7 @@
     .socialIcon {
         width: 30px;
     }
-
+}
 
 @media (max-width: 480px) {
     .textbox h1 {
