@@ -18,10 +18,14 @@ function AboutMe() {
         ctx.fillRect(0,0,canvas.width,canvas.height); // fill entire canvas with white
 
         const handleMouseMove = (e) => { // add new point to trail on mouse move
+            // Use canvas-relative coordinates so the trail aligns with the cursor even if the canvas is positioned or scaled.
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
             trail.current.push({ //tracks mouse position and life of each point
-                x: e.clientX,
-                y: e.clientY,
+                x,
+                y,
                 life: 1 // life starts at 1 and will decrease to 0
             });
 
@@ -41,11 +45,11 @@ function AboutMe() {
             trail.current.forEach((point, index) => {
 
                 ctx.beginPath();
-                ctx.arc(point.x, point.y, 60 * point.life, 0, Math.PI * 2);
+                ctx.arc(point.x, point.y, 60 * point.life, 0, Math.PI * 2); 
                 ctx.fill();
 
                 // shrink / fade trail
-                point.life -= 0.02;
+                point.life -= 0.05;
 
                 if(point.life <= 0){
                     trail.current.splice(index,1);
@@ -69,9 +73,10 @@ function AboutMe() {
                 <img src="/kittyBackground.jpg" id="background" />
                 <canvas ref={canvasRef} id="mask"></canvas>
 
-                
+
                  <div className="textbox">
                     <h1>Haley Crousser</h1>
+                    <p>yayyyyyy comp sci!</p>
                 </div>
 
 
