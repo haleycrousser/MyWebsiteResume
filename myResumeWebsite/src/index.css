@@ -136,6 +136,8 @@ h1 {
     transform: scale(1.2);
 }
 
+/* ===== Page 2 ===== */
+
 .page{
     height:100vh;
     overflow:hidden;
@@ -150,13 +152,16 @@ h1 {
     height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
 
     background:#2a155f;
     color:white;
 }
 
+#page2 h1{
+    font-size:4rem;
+    margin-top:50px;
+}
 
 
 

@@ -141,9 +141,9 @@ function AboutMe() {
     </div>
 
     <div id="page2">
-        <h1>More About Me</h1>
+        <h1>References</h1>
         <p>
-            Here you can talk about projects, interests, or experience.
+            hi
         </p>
     </div>
 
