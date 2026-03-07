@@ -68,7 +68,33 @@ function AboutMe() {
             <div id="container">
                 <img src="/kittyBackground.jpg" id="background" />
                 <canvas ref={canvasRef} id="mask"></canvas>
-                <h1>Haley Crousser</h1>
+
+                
+                 <div className="textbox">
+                    <h1>Haley Crousser</h1>
+                </div>
+
+
+                <div className="imagebox">
+                    <img src="/profilePic.jpg" id="profilePic" />
+                </div>
+
+
+                <div className="socials">
+
+                <a href="https://github.com/haleycrousser" target="_blank">
+                    <img src="/github.png" className="socialIcon"/>
+                </a>
+
+                <a href="https://www.linkedin.com/in/haleycrousser/" target="_blank">
+                    <img src="/LinkedIn.png" className="socialIcon"/>
+                </a>
+
+                <a href="https://leetcode.com/u/haleycrousser/" target="_blank">
+                    <img src="/leetcode.png" className="socialIcon"/>
+                </a>
+
+            </div>
             </div>
 
 
