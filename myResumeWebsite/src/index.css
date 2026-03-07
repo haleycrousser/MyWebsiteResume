@@ -34,6 +34,12 @@
     text-align: center; /* centers text if wrapped */
 }
 
+.nav-links a:hover {
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
 /* ===== Container & Background ===== */
 #container {
     position: relative;
@@ -128,8 +134,32 @@ h1 {
 
 .socialIcon:hover {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 8px #fff);
 }
+
+.page{
+    height:100vh;
+    overflow:hidden;
+}
+
+#container{
+    height:100vh;
+    position:relative;
+}
+
+#page2{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:#2a155f;
+    color:white;
+}
+
+
+
+
 
 /* ===== Mobile Responsiveness ===== */
 @media (max-width: 480px) {

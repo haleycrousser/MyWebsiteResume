@@ -2,40 +2,39 @@ import { useEffect, useRef } from "react";
 
 function AboutMe() {
 
-    const canvasRef = useRef(null); // interact with canvas element directly
-    const trail = useRef([]); //mouse trail data
+    const canvasRef = useRef(null);
+    const trail = useRef([]);
 
-    useEffect(() => { // runs once on component mount, 
+    useEffect(() => {
 
-        const canvas = canvasRef.current; // get canvas element from ref
-        const ctx = canvas.getContext("2d"); // get 2D drawing context
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext("2d");
 
-        canvas.width = window.innerWidth; // set canvas size to fill window
-        canvas.height = window.innerHeight; // set canvas size to fill window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        ctx.fillStyle = "white"; //white background
-        ctx.globalAlpha = 0.8; // low opacity for fading effect
-        ctx.fillRect(0,0,canvas.width,canvas.height); // fill entire canvas with white
+        ctx.fillStyle = "white";
+        ctx.globalAlpha = 0.8;
+        ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        const handleMouseMove = (e) => { // add new point to trail on mouse move
-            // Use canvas-relative coordinates so the trail aligns with the cursor even if the canvas is positioned or scaled.
+        const handleMouseMove = (e) => {
+
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            trail.current.push({ //tracks mouse position and life of each point
+            trail.current.push({
                 x,
                 y,
-                life: 1 // life starts at 1 and will decrease to 0
+                life: 1
             });
 
         };
 
-        window.addEventListener("mousemove", handleMouseMove); // listen for mouse movement and call handleMouseMove
+        window.addEventListener("mousemove", handleMouseMove);
 
         function animate(){
 
-            // slowly repaint white
             ctx.globalCompositeOperation = "source-over";
             ctx.fillStyle = "rgba(255,255,255,0.05)";
             ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -45,10 +44,9 @@ function AboutMe() {
             trail.current.forEach((point, index) => {
 
                 ctx.beginPath();
-                ctx.arc(point.x, point.y, 60 * point.life, 0, Math.PI * 2); 
+                ctx.arc(point.x, point.y, 60 * point.life, 0, Math.PI * 2);
                 ctx.fill();
 
-                // shrink / fade trail
                 point.life -= 0.05;
 
                 if(point.life <= 0){
@@ -62,45 +60,95 @@ function AboutMe() {
 
         animate();
 
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+        /* ===== Commit Scroll Logic ===== */
+
+        let currentSection = 0;
+        let isScrolling = false;
+
+        const sections = [
+            document.getElementById("container"),
+            document.getElementById("page2")
+        ];
+
+        const handleWheel = (e) => {
+
+            if(isScrolling) return;
+
+            if(e.deltaY > 40 && currentSection === 0){
+                isScrolling = true;
+                currentSection = 1;
+
+                sections[1].scrollIntoView({behavior:"smooth"});
+
+                setTimeout(()=>{isScrolling=false},800);
+            }
+
+            if(e.deltaY < -40 && currentSection === 1){
+                isScrolling = true;
+                currentSection = 0;
+
+                sections[0].scrollIntoView({behavior:"smooth"});
+
+                setTimeout(()=>{isScrolling=false},800);
+            }
+
+        };
+
+        window.addEventListener("wheel", handleWheel);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("wheel", handleWheel);
+        };
 
     }, []);
 
     return(
-        <div>
 
-            <div id="container">
-                <img src="/kittyBackground.jpg" id="background" />
-                <canvas ref={canvasRef} id="mask"></canvas>
+<div className="page">
 
+    <div id="container">
 
-                 <div className="textbox">
-                    <h1>
-                        <span style={{fontSize: "2em"}}>Haley Crousser </span><br></br><br></br>
-                        Professional Computer Science Student<br></br>at Middle Tennessee State University
-                    </h1>
-                    <p1>C++ • Python • Javascript • HTML • CSS • React<br></br></p1>
-                    <p2><br></br>I am currently in my third year of college, and I've had an interest
-                        in computers since I was a kid. I started programming with HTML and 
-                        CSS in high school, and I have since expanded my skillset to include C++, 
-                        Python, and React.<br></br>
-                        My goal is to become a software engineer because I want to contribute to
-                        meaningful projects that bring positivity and innovation. As a consumer and developer
-                        I'd rather support a passion project made by a company or a small team that cares about their work, rather than
-                         someone that prioritizes profit over quality. <br></br>
+        <img src="/kittyBackground.jpg" id="background" />
+        <canvas ref={canvasRef} id="mask"></canvas>
 
-                    </p2>
-                </div>
+        <div className="textbox">
+            <h1>
+                <span style={{fontSize: "2em"}}>Haley Crousser </span><br/><br/>
+                Professional Computer Science Student<br/>
+                at Middle Tennessee State University
+            </h1>
 
+            <p>C++ • Python • Javascript • HTML • CSS • React</p>
 
-                <div className="imagebox">
-                    <img src="/profilePic.jpg" id="profilePic" />
-                </div>
+            <p>
+            I am currently in my third year of college, and I've had an interest
+            in computers since I was a kid. I started programming with HTML and 
+            CSS in high school, and I have since expanded my skillset to include C++, 
+            Python, and React.<br/><br/>
 
-            </div>
-
-
+            My goal is to become a software engineer because I want to contribute to
+            meaningful projects that bring positivity and innovation. As a consumer and developer
+            I'd rather support a passion project made by a company or a small team that cares about their work, rather than
+            someone that prioritizes profit over quality.
+            </p>
         </div>
+
+        <div className="imagebox">
+            <img src="/profilePic.jpg" id="profilePic" />
+        </div>
+
+    </div>
+
+    <div id="page2">
+        <h1>More About Me</h1>
+        <p>
+            Here you can talk about projects, interests, or experience.
+        </p>
+    </div>
+
+</div>
+
     );
 }
 
