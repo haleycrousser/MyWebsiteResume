@@ -1,3 +1,8 @@
+//mtsu
+//highschool
+//graduation dates
+//healthcare focus in highschool
+//buisness classes and design classes taken in highschool
 
 function Education() {
 

@@ -1,4 +1,8 @@
-
+//working at library
+//learning about systems
+//learning about customer service from fast food & help desk
+//troubleshooting skills
+//
 function Experience() {
 
 
