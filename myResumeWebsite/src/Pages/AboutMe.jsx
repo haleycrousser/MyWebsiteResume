@@ -141,9 +141,22 @@ function AboutMe() {
     </div>
 
     <div id="page2">
-        <h1>References</h1>
+        <h1>yap</h1>
         <p>
-            hi
+            <t></t>Growing up, I wanted to go into the healthcare industry because I wanted to help people, but I realized that
+            helping people can manifest in different ways. Software has helped me connect with people and become more
+            knowledgable and creative. I wouldn't say I'm naturally creative, but growing up wanting to develop small roblox
+            games and websites is what sparked my creative gene. Before I was introduced to softwares and programming, my myers
+            briggs personality type was INTP. Now, as an adult who has encouraged her creative side I'm considered ISFP which feels
+            like a complete 180.<br></br><br></br>
+
+            <t></t>Although I love my creative side, I think it can also be a significant weakness. I have a hard time finishing projects
+            because I need everything to be perfect, and I feel embarassed sharing my work. I have many repositories on GitHub that
+            are private because I had a project, but wanted to do everything myself and make it perfect before sharing it. I'm not
+            going to say I'm better now, but I'm working on it. I can't wait to graduate and finally focus completely on my personal
+            projects and passions. I have a lot of ideas that I want to bring to life, and I hope to find a team of people who
+            are just as passionate about their work as I am.
+
         </p>
     </div>
 
